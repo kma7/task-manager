@@ -1,10 +1,9 @@
 let ObjectID = require('mongodb').ObjectID
 
-
 module.exports = (app, db) => {
   app.get('/tasks/:id', (req, res) => {
-    const id = req.params.id
-    const details = { '_id': new ObjectID(id) }
+    const id = req.params.id,
+      details = { '_id': new ObjectID(id) }
     db.collection('tasks').findOne(details, (err, item) => {
       if (err) {
         res.send({'error':'An error has occurred'})
@@ -14,14 +13,13 @@ module.exports = (app, db) => {
     })
   })
 
+ // Add a task
   app.post('/tasks', (req, res) => {
-    // You'll create your task here.
     const task = { text: req.body.body, title: req.body.title }
     db.collection('tasks').insert(task, (err, result) => {
       if (err) {
         res.send({ 'error': 'An error has occurred' })
       } else {
-        console.log(result)
         res.send(result.ops[0])
       }
     })
@@ -40,9 +38,9 @@ module.exports = (app, db) => {
   })
 
   app.put('/tasks/:id', (req, res) => {
-    const id = req.params.id
-    const details = { '_id': new ObjectID(id) }
-    const task = { text: req.body.body, title: req.body.title }
+    const id = req.params.id,
+      details = { '_id': new ObjectID(id) },
+      task = { text: req.body.body, title: req.body.title }
     db.collection('tasks').update(details, task, (err, result) => {
       if (err) {
           res.send({'error':'An error has occurred'})

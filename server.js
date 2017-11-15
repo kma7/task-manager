@@ -5,7 +5,7 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   db = require('./config/db'),
   app = express(),
-  port = 8000
+  port = 8080
 app.use(bodyParser.urlencoded({ extended: true }))
 
 MongoClient.connect(db.url, (err, database) => {
