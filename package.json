@@ -13,7 +13,8 @@
   "author": "Kun Ma",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kma7/task-manager/issues"
+    "url": "https://github.com/kma7/task-manager/issues",
+    "ref": "https://medium.freecodecamp.org/building-a-simple-node-js-api-in-under-30-minutes-a07ea9e390d2"
   },
   "homepage": "https://github.com/kma7/task-manager#readme",
   "dependencies": {
